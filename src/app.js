@@ -1,3 +1,3 @@
-export const a = 'Hello World'
+export const a = 'Hello World';
 
-export const b = 'Goodbye!'
+export const b = 'Goodbye!';
