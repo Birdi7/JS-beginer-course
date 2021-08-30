@@ -1,16 +1,15 @@
-const path = require('path');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const path = require('path')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
-  entry: '/src/index.js',
+  entry: '/src/index.jsx',
   output: {
     path: path.resolve('dist'),
     filename: 'bundle.js',
-    clean: true,
+    clean: true
   },
   module: {
-    rules: [
-    ],
+    rules: []
   },
-  plugins: [new ESLintPlugin()],
-};
+  plugins: [new ESLintPlugin()]
+}
