@@ -8,8 +8,20 @@ module.exports = {
     filename: 'bundle.js',
     clean: true
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.js(x)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {}
+        }
+      }
+    ]
   },
   plugins: [new ESLintPlugin()]
 }
