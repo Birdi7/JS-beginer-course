@@ -9,6 +9,17 @@ module.exports = {
     filename: 'bundle.js',
     clean: true
   },
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  devServer: {
+    port: 9000,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false
+      }
+    }
+  },
+  devtool: 'eval-source-map',
   resolve: {
     extensions: ['.js', '.jsx']
   },
@@ -25,7 +36,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new ESLintPlugin(),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx'],
+      exclude: 'node_modules'
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })
