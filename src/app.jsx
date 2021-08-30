@@ -1,10 +1,15 @@
 import { hot } from 'react-hot-loader/root'
 import React from 'react'
+import Header from './components/Header/Header'
+import { GlobalStyle } from './index.styles'
+import Form from './components/Form/Form'
 
 function App() {
   return (
     <>
-      <h1>Hello from react 4</h1>
+      <GlobalStyle />
+      <Header />
+      <Form />
     </>
   )
 }
