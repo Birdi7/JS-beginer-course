@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
+import { useHistory } from 'react-router-dom'
 import Input from './Input'
 import { greaterThan, required } from './validations'
 import { FormWrapper } from './Form.styles'
@@ -7,13 +8,17 @@ import Button from '../Button/Button'
 
 function Form({ onSubmit }) {
   const methods = useForm()
+  const history = useHistory()
 
   return (
     <FormWrapper>
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit((values) => {
-            if (onSubmit) onSubmit(values)
+            if (onSubmit) {
+              onSubmit(values)
+              history.push('/game')
+            }
           })}
         >
           <Input
