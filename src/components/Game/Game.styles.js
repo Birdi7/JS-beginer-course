@@ -18,6 +18,7 @@ export const DeckStyled = styled.div`
     width: 150px;
     margin: 0 auto;
     cursor: pointer;
+    user-select: none;
 
     &:hover {
       box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
@@ -34,4 +35,8 @@ export const DeckStyled = styled.div`
         opacity: 0.3;
       }
     `}
+`
+
+export const CardImg = styled.img`
+  width: 80px;
 `
