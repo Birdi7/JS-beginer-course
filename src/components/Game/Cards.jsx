@@ -1,10 +1,11 @@
 import React from 'react'
+import { CardImg } from './Game.styles'
 
 function Cards({ cards }) {
   return (
     <div>
-      {cards.map((card) => (
-        <img src={card.image} alt="" />
+      {cards.map((card, i) => (
+        <CardImg key={i + card.value} src={card.image} alt="" />
       ))}
     </div>
   )

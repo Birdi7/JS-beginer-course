@@ -11,7 +11,7 @@ module.exports = {
   },
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devServer: {
-    port: 9000,
+    port: 3000,
     historyApiFallback: true,
     client: {
       overlay: {

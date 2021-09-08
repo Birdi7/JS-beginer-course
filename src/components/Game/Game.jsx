@@ -6,6 +6,20 @@ import Loader from '../Loader/Loader'
 import Deck from './Deck'
 import Cards from './Cards'
 
+function parseCardPoint(card) {
+  switch (card) {
+    case 'ACE':
+      return 11
+    case 'KING':
+    case 'QUEEN':
+    case 'JACK':
+    case '0':
+      return 10
+    default:
+      return Number(card)
+  }
+}
+
 function Game({ name, age }) {
   const history = useHistory()
   useLayoutEffect(() => {
@@ -30,16 +44,18 @@ function Game({ name, age }) {
     })
   }, [])
 
-  const handleDrawCard = () => {
-    setLoading(true)
-    axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`).then((response) => {
-      setRemaining(response.data.remaining)
-      setCards((prevCards) => [...prevCards, ...response.data.cards])
-      setLoading(false)
-    })
-  }
-
   const [points, setPoints] = useState(0)
+  const handleDrawCard = () => {
+    if (remaining > 0) {
+      setLoading(true)
+      axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`).then((response) => {
+        setRemaining(response.data.remaining)
+        setCards((prevCards) => [...prevCards, ...response.data.cards])
+        setPoints((prevPoints) => prevPoints + parseCardPoint(response.data.cards[0].value))
+        setLoading(false)
+      })
+    }
+  }
 
   return (
     <GameWrapper>
@@ -49,6 +65,7 @@ function Game({ name, age }) {
         <>
           <GameTitle>Hello {name}!</GameTitle>
           <Deck count={remaining} loading={loading} drawCard={handleDrawCard} />
+          <div>Score: {points}</div>
           <Cards cards={cards} />
         </>
       )}
