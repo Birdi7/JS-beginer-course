@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import { InputError, InputWrapper, StyledInput } from './Form.styles'
+import { InputError, InputWrapper, StyledInput } from './Input.styles'
 
 function Input({ name, validation, label, ...rest }) {
   const {

@@ -2,23 +2,10 @@ import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { GameTitle, GameWrapper } from './Game.styles'
-import Loader from '../Loader/Loader'
+import Loader from '../../components/ui/loader/Loader'
 import Deck from './Deck'
 import Cards from './Cards'
-
-function parseCardPoint(card) {
-  switch (card) {
-    case 'ACE':
-      return 11
-    case 'KING':
-    case 'QUEEN':
-    case 'JACK':
-    case '0':
-      return 10
-    default:
-      return Number(card)
-  }
-}
+import parseCardPoint from '../../utils/cards/parseCardsPoints'
 
 function Game({ name, age }) {
   const history = useHistory()

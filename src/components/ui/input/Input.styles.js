@@ -27,8 +27,3 @@ export const InputWrapper = styled.div`
     margin-bottom: 20px;
   }
 `
-
-export const FormWrapper = styled.div`
-  margin: 60px auto 40px;
-  width: 400px;
-`

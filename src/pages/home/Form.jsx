@@ -1,10 +1,10 @@
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
-import Input from './Input'
-import { greaterThan, required } from './validations'
+import Input from '../../components/ui/input/Input'
+import { greaterThan, required } from '../../utils/validations'
 import { FormWrapper } from './Form.styles'
-import Button from '../Button/Button'
+import Button from '../../components/ui/button/Button'
 
 function Form({ onSubmit }) {
   const methods = useForm()
