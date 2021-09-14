@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardImg } from './Game.styles'
+import { CardImg } from '../Game.styles'
 
 function Cards({ cards }) {
   return (
