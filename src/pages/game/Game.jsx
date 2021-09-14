@@ -44,18 +44,20 @@ function Game({ name, age }) {
     }
   }
 
+  if (loading && !deckId) {
+    return (
+      <GameWrapper>
+        <Loader />
+      </GameWrapper>
+    )
+  }
+
   return (
     <GameWrapper>
-      {loading && !deckId ? (
-        <Loader />
-      ) : (
-        <>
-          <GameTitle>Hello {name}!</GameTitle>
-          <Deck count={remaining} loading={loading} drawCard={handleDrawCard} />
-          <div>Score: {points}</div>
-          <Cards cards={cards} />
-        </>
-      )}
+      <GameTitle>Hello {name}!</GameTitle>
+      <Deck count={remaining} loading={loading} drawCard={handleDrawCard} />
+      <div>Score: {points}</div>
+      <Cards cards={cards} />
     </GameWrapper>
   )
 }

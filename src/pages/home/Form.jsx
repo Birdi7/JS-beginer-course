@@ -10,17 +10,17 @@ function Form({ onSubmit }) {
   const methods = useForm()
   const history = useHistory()
 
+  const handleSubmit = (values) => {
+    if (onSubmit) {
+      onSubmit(values)
+      history.push('/game')
+    }
+  }
+
   return (
     <FormWrapper>
       <FormProvider {...methods}>
-        <form
-          onSubmit={methods.handleSubmit((values) => {
-            if (onSubmit) {
-              onSubmit(values)
-              history.push('/game')
-            }
-          })}
-        >
+        <form onSubmit={methods.handleSubmit(handleSubmit)}>
           <Input
             type="text"
             name="name"
