@@ -21,6 +21,10 @@ export const initCardsFailure = (message) => ({
 })
 
 export const initCards = () => async (dispatch) => {
+  dispatch({
+    type: INIT_CARDS
+  })
+
   try {
     const data = await cardsService.generateDeck(1)
     dispatch(

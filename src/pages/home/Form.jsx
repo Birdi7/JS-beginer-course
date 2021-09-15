@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Input from '../../components/ui/input/Input'
 import { greaterThan, required } from '../../utils/validations'
 import { FormWrapper } from './Form.styles'
@@ -9,9 +9,15 @@ import Button from '../../components/ui/button/Button'
 import { setUserAction } from '../../store/user/user.actions'
 
 function Form() {
-  const methods = useForm()
   const history = useHistory()
   const dispatch = useDispatch()
+  const { name, age } = useSelector((state) => state.user)
+  const methods = useForm({
+    defaultValues: {
+      name,
+      age
+    }
+  })
 
   const handleSubmit = (values) => {
     dispatch(

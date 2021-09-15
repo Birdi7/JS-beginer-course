@@ -11,7 +11,8 @@ import parseCardPoint from '../../utils/cards/parseCardsPoints'
 const cardsInitialState = {
   loading: true,
   cards: [],
-  points: 0
+  points: 0,
+  inited: false
 }
 
 const cardsReducer = (state = cardsInitialState, action) => {
@@ -19,7 +20,8 @@ const cardsReducer = (state = cardsInitialState, action) => {
     case INIT_CARDS: {
       return {
         ...state,
-        loading: true
+        loading: true,
+        inited: true
       }
     }
     case INIT_CARDS_SUCCESS: {

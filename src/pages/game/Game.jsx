@@ -18,12 +18,14 @@ function Game() {
     }
   }, [])
 
+  const { deckId, remaining, cards, loading, points, inited } = useSelector((state) => state.cards)
   const dispatch = useDispatch()
-  const { deckId, remaining, cards, loading, points } = useSelector((state) => state.cards)
 
   useEffect(() => {
-    dispatch(initCards())
-  }, [])
+    if (!inited) {
+      dispatch(initCards())
+    }
+  }, [inited])
 
   const handleDrawCard = () => {
     if (remaining > 0) {
