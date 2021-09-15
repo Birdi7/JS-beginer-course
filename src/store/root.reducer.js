@@ -1,10 +1,9 @@
-import { combineReducers } from 'redux'
+import { userReducer, userStoreName } from './user/user.slice'
 import cardsReducer from './cards/cards.reducer'
-import userReducer from './user/user.reducer'
 
-const rootReducer = combineReducers({
-  user: userReducer,
+const rootReducer = {
+  [userStoreName]: userReducer,
   cards: cardsReducer
-})
+}
 
 export default rootReducer
