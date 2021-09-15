@@ -1,12 +1,10 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { GameTitle, GameWrapper } from './Game.styles'
 import Loader from '../../components/ui/loader/Loader'
 import Deck from './components/Deck'
 import Cards from './components/Cards'
-import parseCardPoint from '../../utils/cards/parseCardsPoints'
-import cardsService from '../../services/cards.service'
 import { drawCard, initCards } from '../../store/cards/cards.actions'
 
 function Game() {
