@@ -1,9 +1,9 @@
 import { userReducer, userStoreName } from './user/user.slice'
-import cardsReducer from './cards/cards.reducer'
+import { gameReducer, gameStateName } from './game/game.slice'
 
 const rootReducer = {
   [userStoreName]: userReducer,
-  cards: cardsReducer
+  [gameStateName]: gameReducer
 }
 
 export default rootReducer

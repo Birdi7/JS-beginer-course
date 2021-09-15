@@ -5,7 +5,7 @@ import { GameTitle, GameWrapper } from './Game.styles'
 import Loader from '../../components/ui/loader/Loader'
 import Deck from './components/Deck'
 import Cards from './components/Cards'
-import { drawCard, initCards } from '../../store/cards/cards.actions'
+import { gameActions } from '../../store/game/game.slice'
 
 function Game() {
   const { name, age } = useSelector((state) => state.user)
@@ -16,18 +16,18 @@ function Game() {
     }
   }, [])
 
-  const { deckId, remaining, cards, loading, points, inited } = useSelector((state) => state.cards)
+  const { deckId, remaining, cards, loading, points, inited } = useSelector((state) => state.game)
   const dispatch = useDispatch()
 
   useEffect(() => {
     if (!inited) {
-      dispatch(initCards())
+      dispatch(gameActions.initCards())
     }
   }, [inited])
 
   const handleDrawCard = () => {
     if (remaining > 0) {
-      dispatch(drawCard())
+      dispatch(gameActions.drawCards())
     }
   }
 
