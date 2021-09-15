@@ -1,20 +1,26 @@
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import Input from '../../components/ui/input/Input'
 import { greaterThan, required } from '../../utils/validations'
 import { FormWrapper } from './Form.styles'
 import Button from '../../components/ui/button/Button'
+import { setUserAction } from '../../store/user/user.actions'
 
-function Form({ onSubmit }) {
+function Form() {
   const methods = useForm()
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const handleSubmit = (values) => {
-    if (onSubmit) {
-      onSubmit(values)
-      history.push('/game')
-    }
+    dispatch(
+      setUserAction({
+        name: values.name,
+        age: values.age
+      })
+    )
+    history.push('/game')
   }
 
   return (
