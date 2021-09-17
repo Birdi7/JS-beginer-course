@@ -25,6 +25,7 @@ bonus point)
 NOTE: uses [httpie](https://httpie.io) in examples
 
 `POST /register`
+
 `http -v POST :3003/register name=me password=123`
 
 accepts login and password to create user in request's body
@@ -47,6 +48,7 @@ accepts login and password to create user in request's body
 
 ---
 `POST /login`
+
 `http -v POST :3003/login login=me password=123`
 
 validates user login and password given in request's body, provides session token as a result
@@ -71,6 +73,7 @@ validates user login and password given in request's body, provides session toke
 
 ---
 `GET /info`
+
 `http -v get :3003/info Authorization:bWUuJDJiJDA0JFVGQ1E4Z0JqSzRseExobE1Jd095RHU1dG04VjFOeGc4Y2VOZUpQYnNwc3hLRnlqR0U1ZXRp`
 
 
