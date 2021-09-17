@@ -72,7 +72,7 @@ validates user login and password given in request's body, provides session toke
 ---
 `GET /info`
 `http -v get :3003/info Authorization:bWUuJDJiJDA0JFVGQ1E4Z0JqSzRseExobE1Jd095RHU1dG04VjFOeGc4Y2VOZUpQYnNwc3hLRnlqR0U1ZXRp`
-``
+
 
 provide info of secret people, on each server start set of people is different
 ```
