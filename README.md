@@ -22,8 +22,12 @@ bonus point)
 
 ---
 ### Server API
+NOTE: uses [httpie](https://httpie.io) in examples
+
 `POST /register`
-accepts login and password to create user
+`http -v POST :3003/register name=me password=123`
+
+accepts login and password to create user in request's body
 ```
 // Request
 {
@@ -43,7 +47,9 @@ accepts login and password to create user
 
 ---
 `POST /login`
-validates user login and password, provide session token
+`http -v POST :3003/login login=me password=123`
+
+validates user login and password given in request's body, provides session token as a result
 ```
 // Request
 {
@@ -65,6 +71,9 @@ validates user login and password, provide session token
 
 ---
 `GET /info`
+`http -v get :3003/info Authorization:bWUuJDJiJDA0JFVGQ1E4Z0JqSzRseExobE1Jd095RHU1dG04VjFOeGc4Y2VOZUpQYnNwc3hLRnlqR0U1ZXRp`
+``
+
 provide info of secret people, on each server start set of people is different
 ```
 // Request
